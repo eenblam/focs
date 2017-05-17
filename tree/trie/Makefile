@@ -1,21 +1,8 @@
-all: compile
+all: compile clean
 
 compile:
-	gcc -o test test.c trie.c trie.h
-	./test
+	gcc -o test.out test.c trie.c trie.h
+	./test.out
 
-test.o: test.c trie.h
-	gcc -c test.c
-
-trie.o: trie.c trie.h
-	gcc -c trie.c
-
-build: test.o trie.o
-	gcc test.o trie.o -o test
-	./test
-
-test: build cleanup
-
-cleanup:
-	rm *.o
-	rm test
+clean:
+	rm test.out
